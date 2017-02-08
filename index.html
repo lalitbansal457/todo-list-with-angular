@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>Shoping list</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="controller.js"></script>
+</head>
+<body>
+	<div ng-app="myApp">
+		<div ng-controller="productCtrl">
+			<ul>
+				<li ng-repeat="x in products track by $index">
+					{{x}}
+					<span ng-click="removeProduct($index)"> &times;</span>
+					<span ng-click="updateProduct($index,x)">Edit</span>
+				</li>
+			</ul>
+			<input type="text" ng-model="addMe" >
+			<button type="button"  ng-click="addProduct()" ng-show="active">Add</button>
+			<button type="button"  ng-click="addUpdatedProduct()" ng-show="!active">Update</button>
+		</div>
+	</div>
+</body>
+</html>
